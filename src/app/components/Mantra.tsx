@@ -32,7 +32,7 @@ export default function Mantra() {
           className="text-8xl font-black leading-none mb-6 block"
           style={{ color: "var(--accent)", fontFamily: "Georgia, serif" }}
         >
-          "
+          &quot;
         </motion.span>
 
         <p
