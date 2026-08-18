@@ -108,6 +108,7 @@ export default function SkillsGraph() {
   const fgRef = useRef<any>();
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   
   // Hover state
   const [hoverNode, setHoverNode] = useState<any>(null);
@@ -149,6 +150,24 @@ export default function SkillsGraph() {
     }
   }, [mounted]);
 
+  // Force native scroll propagation
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const stopWheel = (e: WheelEvent) => {
+      // Don't prevent default, just stop the event from reaching the canvas
+      e.stopPropagation();
+    };
+
+    // Use capture: true so we intercept the event BEFORE it reaches the canvas
+    wrapper.addEventListener('wheel', stopWheel, { capture: true, passive: true });
+    
+    return () => {
+      wrapper.removeEventListener('wheel', stopWheel, { capture: true });
+    };
+  }, [mounted]);
+
   const handleNodeHover = useCallback((node: any) => {
     setHoverNode(node || null);
     
@@ -187,8 +206,11 @@ export default function SkillsGraph() {
         </div>
         <p className="text-xs text-white/40">Drag nodes to interact · Click to zoom</p>
       </div>
-
-      <ForceGraph3D
+      <div 
+        ref={wrapperRef}
+        className="w-full h-full" 
+      >
+        <ForceGraph3D
         ref={fgRef}
         width={dimensions.width}
         height={dimensions.height}
@@ -226,7 +248,8 @@ export default function SkillsGraph() {
         onNodeClick={handleNodeClick}
         backgroundColor="rgba(0,0,0,0)"
         showNavInfo={false}
-      />
+        />
+      </div>
     </div>
   );
 }
