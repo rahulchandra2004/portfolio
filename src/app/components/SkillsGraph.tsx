@@ -143,6 +143,7 @@ export default function SkillsGraph() {
       if (controls) {
         controls.autoRotate = true;
         controls.autoRotateSpeed = 1.0;
+        controls.enableZoom = false; // Disable scroll-zoom to allow page scrolling
         fgRef.current.cameraPosition({ z: 300 });
       }
     }
@@ -184,7 +185,7 @@ export default function SkillsGraph() {
           <span className="w-2 h-2 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--accent)] animate-pulse" />
           <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">Interactive Matrix</span>
         </div>
-        <p className="text-xs text-white/40">Drag nodes to interact · Scroll to zoom</p>
+        <p className="text-xs text-white/40">Drag nodes to interact · Click to zoom</p>
       </div>
 
       <ForceGraph3D
