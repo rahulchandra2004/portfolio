@@ -144,7 +144,7 @@ export default function SkillsGraph() {
       if (controls) {
         controls.autoRotate = true;
         controls.autoRotateSpeed = 1.0;
-        fgRef.current.cameraPosition({ z: 300 });
+        fgRef.current.cameraPosition({ z: 200 });
       }
     }
   }, [mounted]);
@@ -225,7 +225,7 @@ export default function SkillsGraph() {
         nodeThreeObject={(node: any) => {
           const sprite = new SpriteText(node.id);
           sprite.color = node.color;
-          sprite.textHeight = node.size * 1.5;
+          sprite.textHeight = node.size * 2.5;
           
           if (hoverNode) {
             const isNeighbor = SKILLS_DATA.links.some((l: any) => 
@@ -234,7 +234,7 @@ export default function SkillsGraph() {
             );
             
             if (node.id === hoverNode.id) {
-              sprite.textHeight = node.size * 2.5;
+              sprite.textHeight = node.size * 3.5;
               sprite.color = "#ffffff";
             } else if (!isNeighbor && node.id !== "Core") {
               sprite.color = "rgba(255,255,255,0.1)";
