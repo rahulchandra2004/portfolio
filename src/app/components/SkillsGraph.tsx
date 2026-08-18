@@ -144,7 +144,6 @@ export default function SkillsGraph() {
       if (controls) {
         controls.autoRotate = true;
         controls.autoRotateSpeed = 1.0;
-        controls.enableZoom = false; // Disable scroll-zoom to allow page scrolling
         fgRef.current.cameraPosition({ z: 300 });
       }
     }
