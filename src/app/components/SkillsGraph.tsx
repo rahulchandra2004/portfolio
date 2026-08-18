@@ -137,9 +137,13 @@ export default function SkillsGraph() {
     return () => window.removeEventListener("resize", updateDimensions);
   }, [mounted]);
 
-  // Make the graph slowly spin
+  // Make the graph slowly spin and configure physics
   useEffect(() => {
     if (mounted && fgRef.current) {
+      // Spread the nodes further apart so large text doesn't overlap
+      fgRef.current.d3Force('charge').strength(-250);
+      fgRef.current.d3Force('link').distance(80);
+
       const controls = fgRef.current.controls();
       if (controls) {
         controls.autoRotate = true;
