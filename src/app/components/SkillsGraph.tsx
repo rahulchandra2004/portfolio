@@ -195,7 +195,7 @@ export default function SkillsGraph() {
   return (
     <div 
       ref={containerRef} 
-      className="w-full h-[500px] md:h-[600px] lg:h-[700px] relative rounded-2xl overflow-hidden border border-white/10 pointer-events-none md:pointer-events-auto"
+      className="w-full h-[500px] md:h-[600px] lg:h-[700px] relative rounded-2xl overflow-hidden border border-white/10"
       style={{ background: "rgba(0,0,0,0.2)" }}
     >
       <div className="absolute top-4 left-4 z-10 pointer-events-none">
@@ -217,10 +217,10 @@ export default function SkillsGraph() {
         nodeLabel=""
         nodeColor={(node: any) => node.color}
         nodeRelSize={4}
-        linkWidth={(link: any) => hoverNode && (hoverNode === link.source || hoverNode === link.target) ? 2 : 0.5}
-        linkColor={(link: any) => hoverNode && (hoverNode === link.source || hoverNode === link.target) ? link.source.color || "#ffffff" : "rgba(255,255,255,0.15)"}
+        linkWidth={(link: any) => hoverNode && (hoverNode === link.source || hoverNode === link.target) ? 3 : 1.5}
+        linkColor={(link: any) => hoverNode && (hoverNode === link.source || hoverNode === link.target) ? link.source.color || "#ffffff" : "rgba(255,255,255,0.4)"}
         linkDirectionalParticles={(link: any) => hoverNode && (hoverNode === link.source || hoverNode === link.target) ? 4 : 0}
-        linkDirectionalParticleWidth={1.5}
+        linkDirectionalParticleWidth={2}
         linkDirectionalParticleSpeed={0.01}
         nodeThreeObject={(node: any) => {
           const sprite = new SpriteText(node.id);
