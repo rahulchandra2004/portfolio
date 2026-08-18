@@ -165,8 +165,11 @@ export default function ScrollyCanvas() {
         {/* Canvas — fills full viewport */}
         <canvas
           ref={canvasRef}
-          className="absolute inset-0"
-          style={{ background: "#0c0c0e" }}
+          className="absolute inset-0 object-cover"
+          style={{ 
+            background: "#0c0c0e",
+            filter: "blur(6px) brightness(0.4)" 
+          }}
         />
 
         {/* Radial vignette for cinematic depth */}
