@@ -34,7 +34,7 @@ function HeroSection({ scrollYProgress }: { scrollYProgress: MotionValue<number>
       style={{ opacity, y }}
       className="absolute inset-0 flex flex-col md:flex-row items-center justify-center text-center md:text-left px-6 md:px-20 pointer-events-none gap-8"
     >
-      <div className="flex-1 flex flex-col items-center md:items-start w-full">
+      <div className="flex-1 flex flex-col items-center justify-center md:items-start md:justify-center w-full">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
