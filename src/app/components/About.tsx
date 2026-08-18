@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SkillsGraph from "./SkillsGraph";
 
 const skillGroups = [
   {
@@ -168,11 +169,9 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Skills grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {skillGroups.map((group, index) => (
-            <SkillGroup key={group.label} group={group} index={index} />
-          ))}
+        {/* 3D Skills Interactive Matrix */}
+        <div className="mt-8">
+          <SkillsGraph />
         </div>
       </div>
     </section>
