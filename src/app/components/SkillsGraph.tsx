@@ -195,7 +195,7 @@ export default function SkillsGraph() {
   return (
     <div 
       ref={containerRef} 
-      className="w-full h-[500px] md:h-[600px] lg:h-[700px] relative rounded-2xl overflow-hidden border border-white/10"
+      className="w-full h-[500px] md:h-[600px] lg:h-[700px] relative rounded-2xl overflow-hidden border border-white/10 pointer-events-none md:pointer-events-auto"
       style={{ background: "rgba(0,0,0,0.2)" }}
     >
       <div className="absolute top-4 left-4 z-10 pointer-events-none">
@@ -203,7 +203,7 @@ export default function SkillsGraph() {
           <span className="w-2 h-2 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--accent)] animate-pulse" />
           <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">Interactive Matrix</span>
         </div>
-        <p className="text-xs text-white/40">Drag nodes to interact · Click to zoom</p>
+        <p className="text-xs text-white/40 hidden md:block">Drag nodes to interact · Click to zoom</p>
       </div>
       <div 
         ref={wrapperRef}
