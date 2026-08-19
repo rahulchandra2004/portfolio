@@ -169,9 +169,16 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* 3D Skills Interactive Matrix */}
-        <div className="mt-8">
+        {/* 3D Skills Interactive Matrix (Desktop Only) */}
+        <div className="mt-8 hidden md:block">
           <SkillsGraph />
+        </div>
+
+        {/* Static Skills Grid (Mobile Only) */}
+        <div className="grid grid-cols-1 md:hidden gap-4 mt-8">
+          {skillGroups.map((group, index) => (
+            <SkillGroup key={group.label} group={group} index={index} />
+          ))}
         </div>
       </div>
     </section>
