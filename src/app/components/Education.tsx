@@ -22,7 +22,8 @@ const education = [
 ];
 
 const certifications = [
-  { name: "Microsoft Elevate AICTE — Power BI, AI & ML, Azure", org: "Microsoft × AICTE", accent: "#a0f0c8" },
+  { name: "Gemini Certified University Student", org: "Google for Education", accent: "#a0f0c8", link: "https://www.credential.net/4a181fdd-d149-4031-8ae5-31b253325631" },
+  { name: "Microsoft Elevate AICTE — Power BI, AI & ML, Azure", org: "Microsoft × AICTE", accent: "#7b6ef6" },
   { name: "TCS iON Career Edge", org: "TCS", accent: "#7b6ef6" },
   { name: "Cybersecurity Job Simulation", org: "Deloitte", accent: "#f0a0c8" },
   { name: "AI Fundamentals", org: "Cisco & IBM", accent: "#f0d8a0" },
@@ -136,20 +137,26 @@ export default function Education() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certifications.map((cert, i) => (
-              <motion.div
-                key={cert.name}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.07 }}
-                whileHover={{ y: -4 }}
-                className="rounded-xl p-5 flex items-start gap-4"
-                style={{
-                  background: "rgba(255,255,255,0.025)",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  transition: "all 0.25s ease",
-                }}
+            {certifications.map((cert, i) => {
+              const CardWrapper = cert.link ? motion.a : motion.div;
+              return (
+                <CardWrapper
+                  href={cert.link}
+                  target={cert.link ? "_blank" : undefined}
+                  rel={cert.link ? "noopener noreferrer" : undefined}
+                  key={cert.name}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.07 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-xl p-5 flex items-start gap-4"
+                  style={{
+                    background: "rgba(255,255,255,0.025)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                    transition: "all 0.25s ease",
+                    cursor: cert.link ? "pointer" : "default",
+                  }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderColor = `${cert.accent}30`;
                   (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 30px ${cert.accent}10`;
@@ -169,8 +176,8 @@ export default function Education() {
                   <p className="font-semibold text-white text-sm leading-snug mb-1">{cert.name}</p>
                   <p className="text-xs" style={{ color: cert.accent }}>{cert.org}</p>
                 </div>
-              </motion.div>
-            ))}
+              </CardWrapper>
+            )})}
           </div>
         </motion.div>
 
