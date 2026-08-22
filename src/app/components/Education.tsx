@@ -23,6 +23,7 @@ const education = [
 
 const certifications = [
   { name: "Gemini Certified University Student", org: "Google for Education", accent: "#a0f0c8", link: "https://www.credential.net/4a181fdd-d149-4031-8ae5-31b253325631" },
+  { name: "Oracle Cloud Infrastructure Certified Foundations Associate", org: "Oracle", accent: "#f0d8a0", link: "https://brm-certification.oracle.com/apex/f?p=1111:6:110650579501244:::::#collapse1" },
   { name: "Microsoft Elevate AICTE — Power BI, AI & ML, Azure", org: "Microsoft × AICTE", accent: "#7b6ef6" },
   { name: "TCS iON Career Edge", org: "TCS", accent: "#7b6ef6" },
   { name: "Cybersecurity Job Simulation", org: "Deloitte", accent: "#f0a0c8" },
